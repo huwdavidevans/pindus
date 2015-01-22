@@ -8,8 +8,7 @@ Rails.application.configure do
       :access_key_id => Rails.application.secrets.aws_access_key_id,
       :secret_access_key => Rails.application.secrets.aws_secret_access_key,
       :s3_host_name => 's3-eu-west-1.amazonaws.com',
-      :url => ':s3_domain_url',
-      :path => '/:class/:attachment/:id_partition/:style/:filename'
+      :url => ':s3_domain_url'
     }
   }
 

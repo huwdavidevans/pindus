@@ -3,6 +3,7 @@
 %p
   %b Title:
   = @pic.title
+  =image_tag @pic.image.url
 
 = link_to 'Edit', edit_pic_path(@pic)
 \|

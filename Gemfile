@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'foundation-rails'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'acts_as_commentable'
+# gem 'acts-as-taggable-on' -railscasts 382
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

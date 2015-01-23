@@ -7,9 +7,10 @@ Rails.application.configure do
       :bucket => Rails.application.secrets.s3_bucket_name,
       :access_key_id => Rails.application.secrets.aws_access_key_id,
       :secret_access_key => Rails.application.secrets.aws_secret_access_key,
-      :s3_host_name => 's3-eu-west-1.amazonaws.com',
-      :url => ':s3_domain_url'
-    }
+    },
+    :s3_host_name => 's3-eu-west-1.amazonaws.com',
+    :url => ':s3_domain_url',
+    :s3_storage_class => :reduced_redundancy
   }
 
   # In the development environment your application's code is reloaded on

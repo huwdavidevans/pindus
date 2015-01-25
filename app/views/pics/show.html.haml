@@ -1,9 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Title:
-  = @pic.title
   =image_tag @pic.image.url
+  %p
+    %b Title: 
+    = @pic.title
+  %p
+    %b Tags:
+    
+    %ul#tagit-readonly
+      - @pic.tag_list.each do |t|
+        %li
+          = t
 
 = link_to 'Edit', edit_pic_path(@pic)
 \|

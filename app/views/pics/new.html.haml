@@ -1,5 +1,19 @@
-%h1 New pic
+%h1 Add a new pic
 
-= render 'form'
+= form_for @pic do |f|
+  - if @pic.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pic.errors.count, "error")} prohibited this pic from being saved:"
+      %ul
+        - @pic.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :image
+    = f.file_field :image
+
+  .actions
+    = f.submit 'Upload', :class => 'button'
+
 
 = link_to 'Back', pics_path

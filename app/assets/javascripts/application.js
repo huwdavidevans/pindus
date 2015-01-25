@@ -12,9 +12,38 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require tag-it.min
 //= require foundation
 //= require turbolinks
 //= require sweet-alert-confirm
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function() {
+    $(document).foundation();
+});
+
+$(document).ready(function() {
+    $('#tagit-field').tagit({
+        singleField: true,
+        singleFieldNode: $('#tags-field'),
+        allowSpaces: true,
+        removeConfirmation: true,
+        tagSource: function(search, showChoices) {
+            $.ajax({
+                url: "/autocomplete-tags.json",
+                data: search,
+                success: function(data) {
+                    showChoices(data);
+                }
+            });
+        }
+    });
+});
+
+
+$(document).ready(function() {
+    $('#tagit-readonly').tagit({
+        readOnly: true
+    });
+});

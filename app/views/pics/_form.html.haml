@@ -7,12 +7,19 @@
           %li= msg
 
   .field
+    = f.label :image
+    =image_tag @pic.image.url(:medium)
+    = f.file_field :image
+
+  .field
     = f.label :title
     = f.text_field :title
 
   .field
-    = f.label :image
-    = f.file_field :image
-    
+    = f.label :tag_list, "Tags (separated by commas)" 
+
+    = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-field'
+    %ul#tagit-field
+
   .actions
     = f.submit 'Save', :class => 'button'

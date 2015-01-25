@@ -1,4 +1,5 @@
 class Pic < ActiveRecord::Base
+	acts_as_taggable
 
 	has_attached_file :image, styles: {
 		thumb: '64x64>',

@@ -7,11 +7,23 @@
     = @pic.title
   %p
     %b Tags:
-    
-    %ul#tagit-readonly
-      - @pic.tag_list.each do |t|
-        %li
-          = t
+    = form_for @pic, remote: true do |f|
+      - if @pic.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@pic.errors.count, "error")} prohibited this pic from being saved:"
+          %ul
+            - @pic.errors.full_messages.each do |msg|
+              %li= msg
+      .field
+        = f.label :tag_list, "Tags (separated by commas)"
+        = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-field'
+        %ul#tagit-field
+      
+      = f.submit 'save'
+
+
+
+
 
 = link_to 'Edit', edit_pic_path(@pic)
 \|

@@ -33,10 +33,13 @@ $(document).ready(function() {
             $.ajax({
                 url: "/autocomplete-tags.json",
                 data: search,
-                success: function(data) {
-                    showChoices(data);
+                success: function(choices) {
+                    showChoices(choices);
                 }
             });
+        },
+        beforeTagAdded: function() {
+            console.log('b');
         }
     });
 });

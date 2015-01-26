@@ -51,6 +51,7 @@ class PicsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @pic.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

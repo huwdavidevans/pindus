@@ -24,9 +24,16 @@ $(function() {
 });
 
 $(document).ready(function() {
+    $('#tags-hidden-submit').hide();
+
+    $('#tags-hidden-field').change(function(){
+        console.log($('#tags-hidden-field').text());
+        $('#tags-hidden-submit').show();
+    });
+
     $('#tagit-field').tagit({
         singleField: true,
-        singleFieldNode: $('#tags-field'),
+        singleFieldNode: $('#tags-hidden-field'),
         allowSpaces: true,
         removeConfirmation: true,
         tagSource: function(search, showChoices) {
@@ -37,9 +44,6 @@ $(document).ready(function() {
                     showChoices(choices);
                 }
             });
-        },
-        beforeTagAdded: function() {
-            console.log('b');
         }
     });
 });

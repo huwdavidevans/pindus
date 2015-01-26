@@ -1,5 +1,5 @@
 class PicsController < ApplicationController
-  before_action :set_pic, only: [:show, :edit, :update, :destroy]
+  before_action :set_pic, only: [:show, :edit, :update, :destroy, :updateTags]
 
   # GET /pics
   # GET /pics.json
@@ -51,7 +51,6 @@ class PicsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @pic.errors, status: :unprocessable_entity }
-        format.js
       end
     end
   end
@@ -66,6 +65,16 @@ class PicsController < ApplicationController
     end
   end
 
+  def updateTags
+    respond_to do |format|
+      if @pic.update(tag_params)
+        format.html { redirect_to @pic, notice: 'Tags were successfully updated.'}
+      else
+        format.json { render json: @pic.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pic
@@ -75,5 +84,9 @@ class PicsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def pic_params
       params.require(:pic).permit(:title, :image, :tag_list)
+    end
+
+    def tag_params
+      params.require(:pic).permit(:tag_list)
     end
 end

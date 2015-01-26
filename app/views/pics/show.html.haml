@@ -6,16 +6,14 @@
     %b Title: 
     = @pic.title
   %p
-    %b Tags:
-    = form_for @pic, remote: true do |f|
+    = form_for @pic, :url => updateTags_path(@pic), remote: true do |f|
       .field
-        = f.label :tag_list, "Tags (separated by commas)"
+      %b 
+        Tags:
         = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-hidden-field'
+        = f.label :tag_list, "(separate by comma or return)"
         %ul#tagit-field
-      = f.submit 'save', id: 'tags-hidden-submit'
-
-
-
+      = f.submit 'Save', id: 'tags-hidden-submit', :class => 'button', :style => 'display: none;'
 
 
 = link_to 'Edit', edit_pic_path(@pic)

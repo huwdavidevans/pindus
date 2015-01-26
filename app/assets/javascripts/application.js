@@ -26,11 +26,6 @@ $(function() {
 $(document).ready(function() {
     $('#tags-hidden-submit').hide();
 
-    $('#tags-hidden-field').change(function(){
-        console.log($('#tags-hidden-field').text());
-        $('#tags-hidden-submit').show();
-    });
-
     $('#tagit-field').tagit({
         singleField: true,
         singleFieldNode: $('#tags-hidden-field'),
@@ -46,6 +41,12 @@ $(document).ready(function() {
             });
         }
     });
+
+    $('#tags-hidden-field').change(function() {
+        console.log("inside: " + $('#tags-hidden-field').val());
+        $('#tags-hidden-submit').show();
+    });
+
 });
 
 

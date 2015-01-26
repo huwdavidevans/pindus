@@ -1,1 +1,3 @@
-alert('<%= notice %>');
+var saveMessage = $(document.createElement('div')).text('<%= notice %>').addClass('myClass');
+$('#tags-hidden-submit').hide().after(saveMessage);
+setTimeout(function(){saveMessage.fadeOut(300, function(){$(this).remove()});}, 4500);

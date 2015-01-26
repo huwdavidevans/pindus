@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :pics
+
+  # match ':controller(/:action(/:id))', :via => :get
+
+  patch 'pics/updateTags/:id', to: 'pics#updateTags', as: :updateTags
+  resources :pics 
 
   get 'tags/:tag', to: 'pics#index', as: :tag
   get 'autocomplete-tags' => 'tags#autocomplete'

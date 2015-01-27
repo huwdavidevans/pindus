@@ -20,8 +20,10 @@
  */
  
 @import "colours";
+@import "fonts";
 
 body {
+    @include cabin-font;
     background: $porridge;
     // padding: 1.5em;
 }

@@ -7,6 +7,7 @@
 
     %title= content_for?(:title) ? yield(:title) : "pindus"
 
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin:400,500,600|Hammersmith+One|Amaranth:700,400"
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tag

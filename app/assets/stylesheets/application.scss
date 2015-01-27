@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= 
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
@@ -17,7 +18,20 @@
  *= require jquery-ui
  *= require jquery.tagit
  */
+ 
+@import "colours";
 
 body {
-	padding: 1.5em;
+    background: $porridge;
+    // padding: 1.5em;
+}
+
+#top-bar {
+    background: $chocolate-milk;
+    height: 2.2em;
+    margin: 0 0 1.5em 0;
+    font-size: 1.5em;
+    line-height: 2.2em;
+    padding-left: .5em;
+    color: $cold-tea;
 }

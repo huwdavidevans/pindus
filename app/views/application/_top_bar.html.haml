@@ -1,3 +1,6 @@
 #top-bar
-  %span
-    Pindus
+  .row
+    .columns.large-1
+      =link_to 'Pindus', pics_path
+    .columns.large-11
+      =link_to 'New Pic', new_pic_path, :class=>'right'

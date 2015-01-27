@@ -17,6 +17,7 @@
 //= require foundation
 //= require turbolinks
 //= require sweet-alert-confirm
+//= require jquery.colorbox
 //= require_tree .
 
 $(function() {
@@ -24,7 +25,6 @@ $(function() {
 });
 
 $(document).ready(function() {
-    $('#tags-hidden-submit').hide();
 
     $('#tagit-field').tagit({
         singleField: true,
@@ -44,8 +44,21 @@ $(document).ready(function() {
 
     $('#tags-hidden-field').change(function() {
         console.log("inside: " + $('#tags-hidden-field').val());
-        $('#tags-hidden-submit').show();
+        $('form.edit_pic').submit();
     });
+
+    $('#tags-hidden-field').closest('form').on('ajax:success', function(data) {
+        console.log(data);
+        console.log('tags updated');
+    });
+
+    $('a.colorbox').colorbox({
+        overlay: true,
+        title: true
+        
+    });
+
+
 
 });
 

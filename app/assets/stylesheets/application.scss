@@ -17,18 +17,18 @@
  *= require sweet-alert
  *= require jquery-ui
  *= require jquery.tagit
+ *= require colorbox
  */
- 
+
 @import "colours";
 @import "fonts";
 
 body {
-    @include cabin-font;
-    background: $porridge;
     // padding: 1.5em;
 }
 
 #top-bar {
+    font-family: 'Amaranth', sans-serif;
     background: $chocolate-milk;
     height: 2.2em;
     margin: 0 0 1.5em 0;
@@ -36,4 +36,13 @@ body {
     line-height: 2.2em;
     padding-left: .5em;
     color: $cold-tea;
+    a {
+        color: $cold-tea;
+        &:hover{
+            color: $cream-tea;
+        }
+    }
+}
+
+ul.tagit {
 }

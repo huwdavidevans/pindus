@@ -1,21 +1,23 @@
 %p#notice= notice
 
-%p
-  =image_tag @pic.image.url
-  %p
-    %b Title: 
-    = @pic.title
-  %p
-    = form_for @pic, :url => updateTags_path(@pic), remote: true do |f|
-      .field
-      %b 
-        Tags:
-        = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-hidden-field'
-        = f.label :tag_list, "(separate by comma or return)"
-        %ul#tagit-field
-      = f.submit 'Save', id: 'tags-hidden-submit', :class => 'button', :style => 'display: none;'
+.row
+  .columns.large-10.large-centered
+    =link_to image_tag(@pic.image.url(:medium)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
+
+.row
+  .columns
+    %h2
+      = @pic.title
+    %p
+      = form_for @pic, :url => updateTags_path(@pic), remote: true do |f|
+        .field
+          %b 
+            Tags:
+            = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-hidden-field'
+            = f.label :tag_list, "(separate by comma or return)"
+            %ul#tagit-field
 
 
-= link_to 'Edit', edit_pic_path(@pic)
-\|
-= link_to 'Back', pics_path
+  = link_to 'Edit', edit_pic_path(@pic)
+  \|
+  = link_to 'Back', pics_path

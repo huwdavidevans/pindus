@@ -14,6 +14,10 @@
 
   %body
     = render "/application/top_bar"
+    %p.notice 
+      = notice
+    %p.alert
+      = alert
     = yield
 
     = javascript_include_tag "application"

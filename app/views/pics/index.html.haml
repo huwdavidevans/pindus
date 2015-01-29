@@ -4,7 +4,7 @@
     .row
     - pics_in_row.each do |pic|
       =link_to(pic) do
-        .inline.thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.isPortrait? ? "portrait" : "landscape") }
+        .inline.thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.dimensionHtmlClass) }
 
 .clearfix
 =will_paginate @pics, previous_label: h("<"), next_label: h(">")

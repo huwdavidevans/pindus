@@ -15,13 +15,27 @@ class Pic < ActiveRecord::Base
     before_save :extract_dimensions
     serialize :dimensions
 
+    def dimensions
+        read_attribute(:dimensions).presence || [0,0]
+    end
+
     def isPortrait?
         width, height = dimensions
         width < height
     end
 
     def isLandscape?
-        !isPortrait?
+        width, height = dimensions
+        width > height
+    end
+
+    def isSquare?
+        width, height = dimensions
+        width == height
+    end
+
+    def dimensionHtmlClass
+        if isPortrait? then 'portrait' elsif isLandscape? then 'landscape' else 'square' end
     end
 
     private

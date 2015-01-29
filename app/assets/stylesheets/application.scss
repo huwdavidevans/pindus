@@ -57,21 +57,23 @@ ul.tagit {
     width: 120px;
     background: center center;
     background-repeat: no-repeat;
+    background-size: 150px;
     transition: background-size .075s ease-in-out;
     
     &:hover{
         cursor: pointer;
+        background-size: 120px auto;
     }
 
     &.portrait {
-            background-size: 135px auto;
+            background-size: 150px auto;
             &:hover {
                 background-size: 120px auto;
             }
     }
 
     &.landscape {
-            background-size: auto 135px;
+            background-size: auto 150px;
             &:hover {
                 background-size: auto 120px;
             }

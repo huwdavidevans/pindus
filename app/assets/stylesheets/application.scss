@@ -77,7 +77,7 @@ $thumbnail-size: 115px;
     &.landscape {
             background-size: auto 150px;
             &:hover {
-                background-size: $thumbnail-size 120px;
+                background-size: auto $thumbnail-size;
             }
     }
 }

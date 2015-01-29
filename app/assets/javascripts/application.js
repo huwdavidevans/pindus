@@ -52,13 +52,7 @@ $(document).ready(function() {
         console.log('tags updated');
     });
 
-    $('a.colorbox').colorbox({
-        overlay: true,
-        title: true
-        
-    });
-
-
+    $('a.colorbox').colorbox();
 
 });
 

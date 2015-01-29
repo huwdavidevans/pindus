@@ -7,7 +7,8 @@ class Pic < ActiveRecord::Base
         preview: '960x720>'
     }, 
     :convert_options => { :all => '-auto-orient' },
-    :path => ":attachment/:id/:style/:filename"
+    :path => ":attachment/:id/:style/:filename",
+    :default_url => ':default_image_url'
 
     # Validate the attached image is image/jpg, image/png, etc
     validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/

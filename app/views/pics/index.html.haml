@@ -1,23 +1,25 @@
-%h1
-  Listing pics
-  - @pics.in_groups_of(5, false).each do |pics_in_row|
-    .row
-    - pics_in_row.each do |pic|
-      =link_to(pic) do
-        .inline.thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.dimensionHtmlClass) }
-
+.row
+  .columns
+    %h1
+      Listing pics
+    %ul.large-block-grid-8
+      - @pics.each do |pic|
+        %li
+          =link_to(pic) do
+            .inline.thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.dimensionHtmlClass) }
+      %br
 .clearfix
-=will_paginate @pics, previous_label: h("<"), next_label: h(">")
-
-%br
-
-= link_to '+ New Pic', new_pic_path, :class=>'button green-button'
+.row
+  .columns
+    =will_paginate @pics, previous_label: h("<"), next_label: h(">"), :class=>'pagination right'
+    %br
+    = link_to '+ New Pic', new_pic_path, :class=>'button green-button'
 %hr
-#tag-cloud
-  %h3
-    Tag Cloud
-  %ul.tags
-    - tag_cloud Pic.tag_counts, %w[s m l] do |tag, css_class|
-      %li
-        = link_to tag.name, tag_path(tag.name), class: css_class
-
+.row
+  #tag-cloud.columns
+    %h3
+      Tag Cloud
+    %ul.tags
+      - tag_cloud Pic.tag_counts, %w[s m l] do |tag, css_class|
+        %li
+          = link_to tag.name, tag_path(tag.name), class: css_class

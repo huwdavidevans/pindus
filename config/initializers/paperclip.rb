@@ -13,3 +13,7 @@ end
 Paperclip.interpolates :day do |attachment, style|
   attachment.instance.created_at.day
 end
+
+Paperclip.interpolates :default_image_url do |attachment, style|
+  ActionController::Base.helpers.image_path("pic/#{style}/default.png")
+end

@@ -52,30 +52,75 @@ ul.tagit {
     display: inline-block;
 }
 
+$thumbnail-size: 115px;
+
 .thumbnail {
-    height: 120px;
-    width: 120px;
+    height: $thumbnail-size;
+    width: $thumbnail-size;
     background: center center;
     background-repeat: no-repeat;
-    background-size: 150px;
+    background-size: $thumbnail-size*1.25;
     transition: background-size .075s ease-in-out;
-    
+
     &:hover{
         cursor: pointer;
-        background-size: 120px auto;
+        background-size: $thumbnail-size auto;
     }
 
     &.portrait {
             background-size: 150px auto;
             &:hover {
-                background-size: 120px auto;
+                background-size: $thumbnail-size auto;
             }
     }
 
     &.landscape {
             background-size: auto 150px;
             &:hover {
-                background-size: auto 120px;
+                background-size: $thumbnail-size 120px;
             }
     }
+}
+
+.pagination {
+
+    height: 28px;
+    font-size: 16px;
+    color: #999;
+
+    @mixin page-buton{
+        @include radius();
+        display: inline-block;
+        margin: 0;
+        color: white;
+        border: 1px solid;
+        height: 24px;
+        width: 24px;
+        text-decoration: none;
+        line-height: 24px;
+        text-align: center;
+    }
+
+    a, span {
+        @include page-buton;
+        background: $mint-shake;
+        border-color: $wheatgrass-juice;
+        &:hover, &:focus {
+            background: $wheatgrass-juice;
+        }
+    }
+
+    .disabled {
+        color: #aaaaaa;
+        display: none;
+    }
+
+    .current, em {
+        @include page-buton; 
+        font-style: normal !important;
+        font-weight: bold;
+        background: $tomato-juice;
+        border-color: $strawberry-daiquiri;
+    }
+
 }

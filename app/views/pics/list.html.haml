@@ -1,0 +1,34 @@
+%h1 Listing pics
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @pics.each do |pic|
+      %tr
+        %td= pic.title
+
+        %td
+          .thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.isPortrait? ? "portrait" : "landscape") }
+        %td= link_to 'Show', pic
+        %td= link_to 'Edit', edit_pic_path(pic)
+        %td= link_to 'Destroy', pic, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to '+ New Pic', new_pic_path, :class=>'button green-button'
+%hr
+#tag-cloud
+  %h3
+    Tag Cloud
+  %ul.tags
+    - tag_cloud Pic.tag_counts, %w[s m l] do |tag, css_class|
+      %li
+        = link_to tag.name, tag_path(tag.name), class: css_class
+

@@ -1,22 +1,13 @@
-%h1 Listing pics
+%h1
+  Listing pics
+  - @pics.in_groups_of(5, false).each do |pics_in_row|
+    .row
+    - pics_in_row.each do |pic|
+      =link_to(pic) do
+        .inline.thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.isPortrait? ? "portrait" : "landscape") }
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @pics.each do |pic|
-      %tr
-        %td= pic.title
-        %td= image_tag pic.image(:thumb)
-        %td= link_to 'Show', pic
-        %td= link_to 'Edit', edit_pic_path(pic)
-        %td= link_to 'Destroy', pic, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.clearfix
+=will_paginate @pics, previous_label: h("<"), next_label: h(">")
 
 %br
 

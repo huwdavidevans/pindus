@@ -22,6 +22,7 @@
 
 @import "colours";
 @import "fonts";
+@import "foundation_and_overrides";
 
 body {
     // padding: 1.5em;
@@ -45,4 +46,34 @@ body {
 }
 
 ul.tagit {
+}
+
+.inline{
+    display: inline-block;
+}
+
+.thumbnail {
+    height: 120px;
+    width: 120px;
+    background: center center;
+    background-repeat: no-repeat;
+    transition: background-size .075s ease-in-out;
+    
+    &:hover{
+        cursor: pointer;
+    }
+
+    &.portrait {
+            background-size: 135px auto;
+            &:hover {
+                background-size: 120px auto;
+            }
+    }
+
+    &.landscape {
+            background-size: auto 135px;
+            &:hover {
+                background-size: auto 120px;
+            }
+    }
 }

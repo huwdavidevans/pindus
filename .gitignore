@@ -32,4 +32,4 @@ bower.json
 
 # If using Vagrant virtual machine
 Vagrantfile
-/vagrant
+/.vagrant

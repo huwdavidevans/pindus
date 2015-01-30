@@ -1,4 +1,6 @@
 %p
   Welcome #{@email}!
-%p You can confirm your account email through the link below:
+%p A user account for #{$APPLICATION_NAME} has been created for you using this email address.
+%br
+%p You must confirm your account email through the link below before you can log in:
 %p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)

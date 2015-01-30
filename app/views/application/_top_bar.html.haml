@@ -1,6 +1,12 @@
 #top-bar
   .row
-    .columns.large-1
+    .columns.large-1.title
       =link_to 'Pindus', pics_path
     .columns.large-11
-      =link_to 'New Pic', new_pic_path, :class=>'right'
+      #user-controls.right
+        - if user_signed_in?
+          Hello #{current_user.email}
+          %br
+          = link_to 'Log out', destroy_user_session_path, :method => 'delete'
+        - else
+          = link_to 'Log in', new_user_session_path

@@ -29,20 +29,30 @@ body {
 }
 
 #top-bar {
-    font-family: 'Amaranth', sans-serif;
+    @include cabin-font;
     background: $chocolate-milk;
-    height: 2.2em;
+    height: 52px;
     margin: 0 0 1.5em 0;
-    font-size: 1.5em;
-    line-height: 2.2em;
-    padding-left: .5em;
     color: $cold-tea;
+
+    #user-controls {
+        text-align: right;
+    }
+
     a {
         color: $cold-tea;
         &:hover{
             color: $cream-tea;
         }
     }
+    
+    .title {
+        @include amaranth-font;
+        font-size: 1.5em;
+        line-height: 2.2em;
+        padding-left: .5em;
+    }
+
 }
 
 ul.tagit {

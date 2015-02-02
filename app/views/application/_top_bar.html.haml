@@ -5,7 +5,8 @@
     .columns.large-11
       #user-controls.right
         - if user_signed_in?
-          Hello #{current_user.email}
+          Hello 
+          = link_to current_user.email, edit_user_registration_path
           %br
           = link_to 'Log out', destroy_user_session_path, :method => 'delete'
         - else

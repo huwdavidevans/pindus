@@ -18,10 +18,13 @@
  *= require jquery-ui
  *= require jquery.tagit
  *= require colorbox
+
  */
 
 @import "colours";
 @import "fonts";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "foundation_and_overrides";
 
 body {
@@ -58,6 +61,16 @@ body {
 ul.tagit {
 }
 
+.tagit-ajax-message {
+    position: absolute;
+    top: 84px;
+    right: 29px;
+    &.success {
+        color: $wheatgrass-juice;
+    }
+}
+
+
 .inline{
     display: inline-block;
 }
@@ -70,7 +83,7 @@ $thumbnail-size: 115px;
     background: center center;
     background-repeat: no-repeat;
     background-size: $thumbnail-size*1.25;
-    transition: background-size .075s ease-in-out;
+    // transition: background-size .075s ease-in-out;
 
     &:hover{
         cursor: pointer;

@@ -13,18 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require tag-it.min
+//
 //= require foundation
-//= require turbolinks
+//
+//= require tag-it.min
 //= require sweet-alert-confirm
 //= require jquery.colorbox
-//= require_tree .
+//
+//= require turbolinks
 
-$(function() {
+var ready;
+ready = function() {
     $(document).foundation();
-});
-
-$(document).ready(function() {
 
     $('#tagit-field').tagit({
         singleField: true,
@@ -43,22 +43,21 @@ $(document).ready(function() {
     });
 
     $('#tags-hidden-field').change(function() {
-        console.log("inside: " + $('#tags-hidden-field').val());
         $('form.edit_pic').submit();
     });
 
     $('#tags-hidden-field').closest('form').on('ajax:success', function(data) {
-        console.log(data);
-        console.log('tags updated');
+        var saveMessage = $(document.createElement('i')).text(' ').addClass('fa fa-floppy-o').addClass('tagit-ajax-message').addClass('success');
+        $('#tagit-field').after(saveMessage);
+        setTimeout(function(){saveMessage.fadeOut(300, function(){$(this).remove()});}, 700);
     });
 
-    $('a.colorbox').colorbox();
-
-});
-
-
-$(document).ready(function() {
     $('#tagit-readonly').tagit({
         readOnly: true
     });
-});
+
+    $('a.colorbox').colorbox();
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready)

@@ -1,9 +1,8 @@
 %p#notice= notice
 
 .row
-  .columns.large-6.small-12
+  .columns
     =link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
-  .columns.large-6.small-12
 .row
   .columns
     %h2

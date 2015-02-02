@@ -1,8 +1,6 @@
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
-Rails.logger = Logger.new(STDOUT)
-
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.gmail.com',

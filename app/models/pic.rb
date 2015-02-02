@@ -10,6 +10,7 @@ class Pic < ActiveRecord::Base
         preview: '960x720>'
     }, 
     :convert_options => { :all => '-auto-orient' },
+    :url => ":attachment/:id/:style/:filename",
     :path => ":attachment/:id/:style/:filename",
     :default_url => ':default_image_url'
 

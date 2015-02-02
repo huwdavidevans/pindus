@@ -8,6 +8,8 @@ gem 'acts-as-taggable-on'
 gem 'sweet-alert-confirm'
 gem 'will_paginate'
 gem 'devise'
+gem 'seed_dump'
+gem 'font-awesome-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

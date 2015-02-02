@@ -17,4 +17,7 @@ user = User.new(
     :screen_name => Rails.application.secrets.admin_screen_name
   )
 user.skip_confirmation!
+user.confirm!
 user.save!
+
+

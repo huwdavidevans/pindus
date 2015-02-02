@@ -8,16 +8,20 @@
     %title= content_for?(:title) ? yield(:title) : "pindus"
 
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin:400,500,600|Hammersmith+One|Amaranth:700,400"
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "vendor/modernizr"
+    = stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag "vendor/modernizr"    
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tag
 
   %body
     = render "/application/top_bar"
-    %p.notice 
-      = notice
-    %p.alert
-      = alert
+    .row
+      .columns
+        %p.notice 
+          = notice
+    .row
+      .columns
+        %p.alert
+          = alert
     = yield
 
-    = javascript_include_tag "application"

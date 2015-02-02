@@ -5,9 +5,9 @@ class PicsController < ApplicationController
   # GET /pics.json
   def index
     if params[:tag]
-      @pics = Pic.tagged_with(params[:tag]).page(params[:page]).per_page(25)
+      @pics = Pic.tagged_with(params[:tag]).page(params[:page]).per_page(32)
     else
-      @pics = Pic.all.order(id: :desc).page(params[:page]).per_page(25)
+      @pics = Pic.all.order(id: :desc).page(params[:page]).per_page(32)
     end
   end
 

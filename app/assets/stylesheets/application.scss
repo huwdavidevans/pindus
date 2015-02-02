@@ -83,7 +83,7 @@ $thumbnail-size: 115px;
     background: center center;
     background-repeat: no-repeat;
     background-size: $thumbnail-size*1.25;
-    // transition: background-size .075s ease-in-out;
+    transition: background-size .075s ease-in-out;
 
     &:hover{
         cursor: pointer;
@@ -102,6 +102,11 @@ $thumbnail-size: 115px;
             &:hover {
                 background-size: auto $thumbnail-size;
             }
+    }
+
+    &.nsfw {
+        background: image-url('pic/nsfw.png') center center;
+        background-size: $thumbnail-size*1.25;
     }
 }
 

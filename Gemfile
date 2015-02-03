@@ -8,6 +8,8 @@ gem 'acts-as-taggable-on'
 gem 'sweet-alert-confirm'
 gem 'will_paginate'
 gem 'devise'
+gem 'cancancan'
+gem 'role_model'
 gem 'seed_dump'
 gem 'font-awesome-sass'
 

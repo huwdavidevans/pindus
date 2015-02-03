@@ -70,8 +70,113 @@ ul.tagit {
     }
 }
 
+#tag-cloud {
 
-.inline{
+    margin-bottom: 2em;
+
+    ul.tags {
+        margin: 0;
+    }
+
+    .tag {
+
+        a {
+            color: inherit;
+        }
+
+        display: inline-block;
+        margin-right: 0.25em;
+        background: $cold-tea;
+        padding: .2em .8em;
+        font-size: 1.0em;
+        font-weight: normal;
+        @include radius(5px);
+
+
+        &.xxl {
+            background: $xxl-tag;
+            color: darken($xxl-tag, 40%);
+        }
+        &.xl {
+            background: $xl-tag;
+            color: darken($xl-tag, 40%);
+        }
+        &.l {
+            background: $l-tag;
+            color: darken($l-tag, 40%);
+        }
+        &.m {
+            background: $m-tag;
+            color: darken($m-tag, 40%);
+        }
+        &.s {
+            background: $s-tag;
+            color: darken($s-tag, 40%);
+        }
+    }
+}
+
+ul.tagit-autocomplete{
+    font-size: 1em;
+    @include cabin-font;
+
+     li.ui-menu-item {
+         position: relative;
+         margin: 0;
+         padding: 3px 1em 3px .4em;
+         cursor: pointer;
+         min-height: 0;
+
+         &.ui-state-focus {
+            border: none;
+            background: $tag;
+            font-weight: normal;
+            color: darken($tag, 40%);
+         }
+
+     } 
+
+
+}
+
+ul#tagit-field {
+    font-size: 1em;
+    @include cabin-font;
+    
+    li.tagit-new {
+        margin: 0;
+        padding: 0;
+    }
+
+    input {
+        font-size: inherit;
+        font-family: inherit;
+        margin-left: .5em;
+    }
+
+    li.tagit-choice{
+        border: none;
+        background: $tag;
+        font-weight: normal;
+        color: darken($tag, 40%);
+        .tagit-label {
+            font-size: 1em;
+        }
+        .ui-icon.ui-icon-close {
+            background-image: image-url('tag/tag_btn_icons_blue.png');
+            background-position: -80px -128px;
+        }
+        &.remove {
+            background: $xxl-tag;
+            color: darken($xxl-tag, 40%);
+            .ui-icon.ui-icon-close {
+                background-image: image-url('tag/tag_btn_icons_white.png');
+            }
+        }
+    }
+}
+
+.inline {
     display: inline-block;
 }
 

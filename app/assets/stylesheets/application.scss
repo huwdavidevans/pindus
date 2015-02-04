@@ -58,6 +58,19 @@ body {
 
 }
 
+#notice {
+    color: #fff;
+    background: $mint-shake;
+    padding: .75em 0;
+    margin: -1.5em 0 1.5em;
+}
+
+#alert {
+    @extend #notice;
+    color: $chocolate-milk;
+    background: $pumpkin;
+}
+
 ul.tagit {
 }
 

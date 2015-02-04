@@ -15,14 +15,18 @@
 
   %body
     = render "/application/top_bar"
-    .row
-      .columns
-        %p#notice 
-          = notice
-    .row
-      .columns
-        %p#alert
-          = alert
+    - if notice
+      #notice
+        .row
+          .column
+            %i.fa.fa-info-circle.fa-lg &nbsp;
+            = notice
+    - if alert
+      #alert
+        .row
+          .column
+            %i.fa.fa-exclamation-triangle.fa-lg &nbsp;
+            = alert
     .row
       .column
         = yield

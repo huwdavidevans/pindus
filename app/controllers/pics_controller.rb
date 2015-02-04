@@ -1,5 +1,7 @@
 class PicsController < ApplicationController
   before_action :set_pic, only: [:show, :edit, :update, :destroy, :updateTags]
+  authorize_resource except: [:updateTags]
+
 
   # GET /pics
   # GET /pics.json

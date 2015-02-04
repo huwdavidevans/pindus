@@ -14,7 +14,7 @@
             = f.label :tag_list, "(separate by comma or return)"
             %ul#tagit-field
 
-
+- if can? :update, @pic
   = link_to 'Edit', edit_pic_path(@pic)
   \|
-  = link_to 'Back', pics_path
+= link_to 'Back', :back

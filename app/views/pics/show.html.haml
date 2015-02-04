@@ -17,4 +17,7 @@
 - if can? :update, @pic
   = link_to 'Edit', edit_pic_path(@pic)
   \|
+- if can? :destroy, @pic
+  = link_to 'Delete', @pic, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  \|
 = link_to 'Back', :back

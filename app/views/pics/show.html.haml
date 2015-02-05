@@ -4,6 +4,18 @@
 
 .row
   .columns
+    .pic-details
+      Uploaded at 
+      %time{:datetime=>@pic.created_at, :title=>distance_of_time_in_words(@pic.created_at, Time.new)+' ago', :class => ['pic-time', @pic.created_at.strftime("%P")]}
+        %span{:class => ('hour-'+@pic.created_at.strftime("%H"))}
+          %span{:class => ('minute-'+@pic.created_at.strftime("%M"))}
+        %span.pic-date
+          = @pic.created_at.strftime("%B %d, %Y")
+      - if @pic.user
+        by
+        %span.pic-user
+          = @pic.user.email
+
     %h2
       = @pic.title
     %p
@@ -24,16 +36,16 @@
       Image Links
       %ul.tabs{'data-tab' => "true"}
         %li.tab-title.active
-          = link_to 'Original Image', '#img-links-orig'
+          = link_to 'Screen Size', '#img-links-prev'
         %li.tab-title
-          = link_to 'Preview Image', '#img-links-prev'
+          = link_to 'Full Size', '#img-links-orig'
       .tabs-content
-        #img-links-orig.content.active
+        #img-links-orig.content
           = text_field_tag 'orig', @pic.image.url(:original, timestamp: false), :readonly => 'true', :class => 'select-all'
-          = text_field_tag 'orig', '[img]'+@pic.image.url(:original, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
-        #img-links-prev.content
-          = text_field_tag 'orig', @pic.image.url(:preview, timestamp: false), :readonly => 'true', :class => 'select-all'
-          = text_field_tag 'orig', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
+          = text_field_tag 'orig_img', '[img]'+@pic.image.url(:original, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
+        #img-links-prev.content.active
+          = text_field_tag 'preview', @pic.image.url(:preview, timestamp: false), :readonly => 'true', :class => 'select-all'
+          = text_field_tag 'preview_img', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
 
 
 - if can? :update, @pic

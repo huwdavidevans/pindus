@@ -19,6 +19,7 @@
 //= require tag-it.min
 //= require sweet-alert-confirm
 //= require jquery.colorbox
+//= require pe-analogclock
 //
 //= require turbolinks
 

@@ -21,3 +21,4 @@ user.confirm!
 user.save!
 
 
+ActiveRecord::Base.connection.reset_pk_sequence!(Pic.table_name)

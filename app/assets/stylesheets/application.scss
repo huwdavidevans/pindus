@@ -18,6 +18,7 @@
  *= require jquery-ui
  *= require jquery.tagit
  *= require colorbox
+ *= require pe-analogclock
 
  */
 
@@ -29,6 +30,47 @@
 
 body {
     // padding: 1.5em;
+}
+
+h1, h2, h3, h4 {
+    color: $chocolate-milk;
+}
+
+.pic-details {
+
+    margin-top: .5em;
+    color: darken($cream-tea, 40%);
+    .pic-time {
+        &.am{
+            color: $denim;
+        }
+        &.pm{
+            color: $tomato-juice;
+        }
+        .pic-date {
+            color: $chocolate-milk;
+            font-weight: bold;
+        }
+    }
+    .pic-user {
+        font-weight: bold;
+    }
+}
+
+.tabs {
+    .tab-title {
+        a {
+            background: $cold-tea;
+            color: $chocolate-milk;
+            &:hover{
+                background: $cream-tea;
+            }
+        }
+        &.active a {
+            background: $chocolate-milk;
+            color: #fff;
+        }
+    }
 }
 
 #top-bar {
@@ -62,9 +104,7 @@ body {
         padding: 17px 1.5em 16px;
         color: darken($wheatgrass-juice , 30%);
     }
-
 }
-
 
 #notice {
     color: #fff;

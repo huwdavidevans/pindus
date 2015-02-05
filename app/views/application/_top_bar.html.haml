@@ -3,9 +3,10 @@
     .columns.large-1.title.small-5
       =link_to 'Pindus', pics_path
     .columns.large-4.small-7
-      = link_to new_pic_path, :class => 'button upload' do 
-        %i.fa.fa-lg.fa-upload
-        &nbsp; New Pic
+      - if can? :create, @pic
+        = link_to new_pic_path, :class => 'button upload' do 
+          %i.fa.fa-lg.fa-upload
+          &nbsp; New Pic
     .columns.large-6
       #user-controls.right
         - if user_signed_in?

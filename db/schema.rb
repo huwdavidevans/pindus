@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129214912) do
+ActiveRecord::Schema.define(version: 20150204214235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150129214912) do
     t.datetime "image_updated_at"
     t.string   "dimensions",         limit: 30
     t.integer  "user_id"
+    t.string   "description"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150129214912) do
     t.string   "middle_names",           limit: 32
     t.string   "last_name",              limit: 32
     t.string   "screen_name",            limit: 32
-    t.integer  "role"
+    t.integer  "roles_mask"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

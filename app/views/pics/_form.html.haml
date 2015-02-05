@@ -6,20 +6,20 @@
         - @pic.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :image
-    =image_tag @pic.image.url(:thumb)
-    = f.file_field :image
+  .row
+    .column.large-4
+      =image_tag @pic.image.url(:thumb)
 
-  .field
-    = f.label :title
-    = f.text_field :title
+    .column.large-8
+      .field
+        = f.label :title
+        = f.text_field :title
 
-  .field
-    = f.label :tag_list, "Tags (separated by commas)" 
+      .field
+        = f.label :description
+        = f.text_area :description
 
-    = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-field'
-    %ul#tagit-field
-
-  .actions
-    = f.submit 'Save', :class => 'button'
+  %hr
+  .row
+    .column.actions
+      = f.submit 'Save', :class => 'button'

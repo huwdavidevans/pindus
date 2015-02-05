@@ -29,7 +29,7 @@ class PicsController < ApplicationController
   # POST /pics
   # POST /pics.json
   def create
-    @pic = current_user.pics.build(pic_params)
+    @pic = current_user.pics.build(create_params)
 
     respond_to do |format|
       if @pic.save
@@ -46,7 +46,7 @@ class PicsController < ApplicationController
   # PATCH/PUT /pics/1.json
   def update
     respond_to do |format|
-      if @pic.update(pic_params)
+      if @pic.update(update_params)
         format.html { redirect_to @pic, notice: 'Pic was successfully updated.' }
         format.json { render :show, status: :ok, location: @pic }
       else
@@ -83,8 +83,12 @@ class PicsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def pic_params
-      params.require(:pic).permit(:title, :image, :tag_list)
+    def update_params
+      params.require(:pic).permit(:title, :tag_list, :description)
+    end
+
+    def create_params
+      params.require(:pic).permit(:title, :image)
     end
 
     def tag_params

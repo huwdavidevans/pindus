@@ -1,18 +1,40 @@
 .row
   .columns
-    =link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
+    = link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
+
 .row
   .columns
     %h2
       = @pic.title
     %p
+      = @pic.description
+
+    .tags
       = form_for @pic, :url => updateTags_path(@pic), remote: true do |f|
         .field
           %b 
-            Tags:
+            Tags: 
             = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-hidden-field'
             = f.label :tag_list, "(separate by comma or return)"
             %ul#tagit-field
+
+.row
+  .columns.actions
+    %h3
+      Image Links
+      %ul.tabs{'data-tab' => "true"}
+        %li.tab-title.active
+          = link_to 'Original Image', '#img-links-orig'
+        %li.tab-title
+          = link_to 'Preview Image', '#img-links-prev'
+      .tabs-content
+        #img-links-orig.content.active
+          = text_field_tag 'orig', @pic.image.url(:original, timestamp: false), :readonly => 'true', :class => 'select-all'
+          = text_field_tag 'orig', '[img]'+@pic.image.url(:original, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
+        #img-links-prev.content
+          = text_field_tag 'orig', @pic.image.url(:preview, timestamp: false), :readonly => 'true', :class => 'select-all'
+          = text_field_tag 'orig', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
+
 
 - if can? :update, @pic
   = link_to 'Edit', edit_pic_path(@pic)

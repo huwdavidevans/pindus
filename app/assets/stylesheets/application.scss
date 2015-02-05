@@ -56,7 +56,15 @@ body {
         padding-left: .5em;
     }
 
+
+    .upload.button {
+        @include button(rem-calc(12), $mint-shake);
+        padding: 17px 1.5em 16px;
+        color: darken($wheatgrass-juice , 30%);
+    }
+
 }
+
 
 #notice {
     color: #fff;
@@ -84,6 +92,9 @@ ul.tagit {
 }
 
 #tag-cloud {
+    h3{
+        margin-bottom: 1em;
+    }
 
     margin-bottom: 2em;
 

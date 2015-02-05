@@ -49,7 +49,11 @@ ready = function() {
     $('#tags-hidden-field').closest('form').on('ajax:success', function(data) {
         var saveMessage = $(document.createElement('i')).text(' ').addClass('fa fa-floppy-o').addClass('tagit-ajax-message').addClass('success');
         $('#tagit-field').after(saveMessage);
-        setTimeout(function(){saveMessage.fadeOut(300, function(){$(this).remove()});}, 700);
+        setTimeout(function() {
+            saveMessage.fadeOut(300, function() {
+                $(this).remove()
+            });
+        }, 700);
     });
 
     $('#tagit-readonly').tagit({
@@ -57,6 +61,11 @@ ready = function() {
     });
 
     $('a.colorbox').colorbox();
+
+    $(".select-all").click(function() {
+        this.select();
+    });
+
 };
 
 $(document).ready(ready);

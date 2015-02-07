@@ -18,6 +18,8 @@
     = javascript_include_tag "vendor/modernizr"    
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tag
+    = render "/application/ga"
+
 
   %body
     = render "/application/top_bar"

@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby "2.2.0"
 
-gem 'foundation-rails'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'acts_as_commentable'

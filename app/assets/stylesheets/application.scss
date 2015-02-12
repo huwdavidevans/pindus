@@ -13,20 +13,17 @@
  *= 
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
  *= require sweet-alert
  *= require jquery-ui
  *= require jquery.tagit
  *= require colorbox
  *= require pe-analogclock
-
  */
 
 @import "colours";
 @import "fonts";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "foundation_and_overrides";
 
 body {
     // padding: 1.5em;
@@ -100,7 +97,7 @@ h1, h2, h3, h4 {
 
 
     .upload.button {
-        @include button(rem-calc(12), $mint-shake);
+        // @include button(rem-calc(12), $mint-shake);
         padding: 17px 1.5em 16px;
         color: darken($wheatgrass-juice , 30%);
     }
@@ -154,7 +151,7 @@ ul.tagit {
         padding: .2em .8em;
         font-size: 1.0em;
         font-weight: normal;
-        @include radius(5px);
+        // @include radius(5px);
 
 
         &.xxl {
@@ -286,7 +283,7 @@ $thumbnail-size: 115px;
     color: #999;
 
     @mixin page-buton{
-        @include radius();
+        // @include radius();
         display: inline-block;
         margin: 0;
         color: white;

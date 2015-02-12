@@ -14,18 +14,14 @@
 //= require jquery_ujs
 //= require jquery-ui
 //
-//= require foundation
-//
 //= require tag-it.min
 //= require sweet-alert-confirm
 //= require jquery.colorbox
 //= require pe-analogclock
-//
 //= require turbolinks
 
 var ready;
 ready = function() {
-    $(document).foundation();
 
     $('#tagit-field').tagit({
         singleField: true,
@@ -70,4 +66,5 @@ ready = function() {
 };
 
 $(document).ready(ready);
-$(document).on('page:load', ready)
+$(document).on('page:load', ready);
+

@@ -1,29 +1,15 @@
-.row
-  .columns
-    %h3
-      %i.fa.fa-photo
-      Pics
-    %ul.large-block-grid-8
-      - @pics.each do |pic|
-        %li
-          =link_to(pic) do
-            - if pic.tag_list.include? 'nsfw'
-              .inline.thumbnail{ :class => [pic.dimensionHtmlClass, 'nsfw'] }
-            - else
-              .inline.thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.dimensionHtmlClass) }
-      %br
-.clearfix
-.row
-  .columns
-    =will_paginate @pics, previous_label: h("<"), next_label: h(">"), :class=>'pagination right'
-    
-%hr
-.row
-  #tag-cloud.columns
-    %h3
-      %i.fa.fa-tag
-      Tags
-    %ul.tags
-      - tag_cloud Pic.tag_counts, %w[s m l xl xxl] do |tag, css_class|
-        %li.tag{:class=>css_class}
-          = link_to tag.name, tag_path(tag.name), :title => pluralize(tag.count, 'pic')+' tagged with this'
+%section
+  %h1
+    %i.fa.fa-photo
+    Pics
+
+  %ul
+    - @pics.each do |pic|
+      %li
+        =link_to(pic) do
+          = render "thumbnail", {:pic => pic}
+
+  =will_paginate @pics, previous_label: h("<"), next_label: h(">"), :class=>'pagination right'
+
+%section#tags
+  = render "tag_cloud"

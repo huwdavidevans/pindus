@@ -1,0 +1,4 @@
+- if pic.tag_list.include? 'nsfw'
+  .inline.thumbnail{ :class => [pic.dimensionHtmlClass, 'nsfw'] }
+- else
+  .inline.thumbnail{ :style => "background-image: url(#{pic.image(:thumb)});", :class => (pic.dimensionHtmlClass) }

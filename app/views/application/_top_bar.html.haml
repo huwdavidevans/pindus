@@ -1,32 +1,23 @@
-#top-bar
-  .row
-    .columns.large-1.title.small-5
-      =link_to 'Pindus', pics_path
-    .columns.large-4.small-7
+%nav#top-bar
+  %ul
+    %li
+      =link_to 'Pindus', pics_path, :class => 'title'
+    %li
       - if can? :create, Pic
         = link_to new_pic_path, :class => 'button upload' do 
           %i.fa.fa-lg.fa-upload
           &nbsp; New Pic
-    .columns.large-6
-      #user-controls.right
-        - if user_signed_in?
-          Hello 
-          = link_to current_user.email, edit_user_registration_path
-          %br
-          = link_to 'Log out', destroy_user_session_path, :method => 'delete'
-        - else
-          = link_to 'Log in', new_user_session_path
-- if notice
-  #notice
-    .row
-      .column
-        %i.fa.fa-info-circle.fa-lg &nbsp;
-        = notice
-- if alert
-  #alert
-    .row
-      .column
-        %i.fa.fa-exclamation-triangle.fa-lg &nbsp;
-        = alert
 
-.row.user_bar
+  %ul#user-controls
+    
+    - if user_signed_in?
+      %li
+        = link_to current_user.email, edit_user_registration_path
+      \|
+      %li
+        = link_to destroy_user_session_path, :method => 'delete' do
+          %i.fa.fa-lg.fa-external-link-square
+          Log Out
+    - else
+      %li
+        = link_to 'Log in', new_user_session_path

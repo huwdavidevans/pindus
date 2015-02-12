@@ -10,9 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= 
- *= require_tree .
- *= require_self
  *= require sweet-alert
  *= require jquery-ui
  *= require jquery.tagit
@@ -20,21 +17,16 @@
  *= require pe-analogclock
  */
 
-@import "colours";
-@import "fonts";
+@import "variables";
+@import "bourbon";
+@import "base/base";
+@import "neat";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-body {
-    // padding: 1.5em;
-}
-
-h1, h2, h3, h4 {
-    color: $chocolate-milk;
-}
+@import "application/layout";
 
 .pic-details {
-
     margin-top: .5em;
     color: darken($cream-tea, 40%);
     .pic-time {
@@ -70,51 +62,7 @@ h1, h2, h3, h4 {
     }
 }
 
-#top-bar {
-    @include cabin-font;
-    background: $chocolate-milk;
-    height: 52px;
-    margin: 0 0 1.5em 0;
-    color: $cold-tea;
 
-    #user-controls {
-        text-align: right;
-    }
-
-    a {
-        color: $cold-tea;
-        &:hover{
-            color: $cream-tea;
-        }
-    }
-    
-    .title {
-        @include amaranth-font;
-        font-size: 1.5em;
-        line-height: 2.2em;
-        padding-left: .5em;
-    }
-
-
-    .upload.button {
-        // @include button(rem-calc(12), $mint-shake);
-        padding: 17px 1.5em 16px;
-        color: darken($wheatgrass-juice , 30%);
-    }
-}
-
-#notice {
-    color: #fff;
-    background: $mint-shake;
-    padding: .75em 0;
-    margin: -1.5em 0 1.5em;
-}
-
-#alert {
-    @extend #notice;
-    color: $chocolate-milk;
-    background: $pumpkin;
-}
 
 ul.tagit {
 }
@@ -151,7 +99,8 @@ ul.tagit {
         padding: .2em .8em;
         font-size: 1.0em;
         font-weight: normal;
-        // @include radius(5px);
+        @include border-top-radius(5px);
+        @include border-bottom-radius(5px);
 
 
         &.xxl {
@@ -179,7 +128,7 @@ ul.tagit {
 
 ul.tagit-autocomplete{
     font-size: 1em;
-    @include cabin-font;
+    font-family: $cabin-font;
 
      li.ui-menu-item {
          position: relative;
@@ -202,7 +151,7 @@ ul.tagit-autocomplete{
 
 ul#tagit-field {
     font-size: 1em;
-    @include cabin-font;
+    font-family: $cabin-font;
     
     li.tagit-new {
         margin: 0;
@@ -283,7 +232,8 @@ $thumbnail-size: 115px;
     color: #999;
 
     @mixin page-buton{
-        // @include radius();
+        @include border-top-radius(5px);
+        @include border-bottom-radius(5px);
         display: inline-block;
         margin: 0;
         color: white;
@@ -319,4 +269,10 @@ $thumbnail-size: 115px;
         padding: 0 .2em;
     }
 
+}
+
+
+section#tags {
+
+    background: $seafoam;
 }

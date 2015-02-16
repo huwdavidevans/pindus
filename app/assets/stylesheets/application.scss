@@ -23,17 +23,15 @@
 @import "neat";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
 @import "application/layout";
-
 .pic-details {
     margin-top: .5em;
     color: darken($cream-tea, 40%);
     .pic-time {
-        &.am{
+        &.am {
             color: $denim;
         }
-        &.pm{
+        &.pm {
             color: $tomato-juice;
         }
         .pic-date {
@@ -45,13 +43,12 @@
         font-weight: bold;
     }
 }
-
 .tabs {
     .tab-title {
         a {
             background: $cold-tea;
             color: $chocolate-milk;
-            &:hover{
+            &:hover {
                 background: $cream-tea;
             }
         }
@@ -61,13 +58,7 @@
         }
     }
 }
-
-
-
-ul.tagit {
-}
-
-.tagit-ajax-message {
+ul.tagit {} .tagit-ajax-message {
     position: absolute;
     top: 84px;
     right: 29px;
@@ -75,96 +66,78 @@ ul.tagit {
         color: $wheatgrass-juice;
     }
 }
-
 #tag-cloud {
-    h3{
+    h3 {
         margin-bottom: 1em;
     }
-
     margin-bottom: 2em;
-
-    ul.tags {
-        margin: 0;
+}
+ul.tags {
+    margin: 0;
+}
+.tag {
+    a {
+        color: inherit;
     }
-
-    .tag {
-
-        a {
-            color: inherit;
-        }
-
-        display: inline-block;
-        margin: 0 0.25em 0.5em 0;
-        background: $cold-tea;
-        padding: .2em .8em;
-        font-size: 1.0em;
-        font-weight: normal;
-        @include border-top-radius(5px);
-        @include border-bottom-radius(5px);
-
-
-        &.xxl {
-            background: $xxl-tag;
-            color: darken($xxl-tag, 40%);
-        }
-        &.xl {
-            background: $xl-tag;
-            color: darken($xl-tag, 40%);
-        }
-        &.l {
-            background: $l-tag;
-            color: darken($l-tag, 40%);
-        }
-        &.m {
-            background: $m-tag;
-            color: darken($m-tag, 40%);
-        }
-        &.s {
-            background: $s-tag;
-            color: darken($s-tag, 40%);
-        }
+    display: inline-block;
+    margin: 0 0.25em 0.5em 0;
+    background: $cold-tea;
+    padding: .2em .8em;
+    font-size: 1.0em;
+    font-weight: normal;
+    @include border-top-radius(5px);
+    @include border-bottom-radius(5px);
+    &.xxl {
+        background: $xxl-tag;
+        color: darken($xxl-tag, 40%);
+    }
+    &.xl {
+        background: $xl-tag;
+        color: darken($xl-tag, 40%);
+    }
+    &.l {
+        background: $l-tag;
+        color: darken($l-tag, 40%);
+    }
+    &.m {
+        background: $m-tag;
+        color: darken($m-tag, 40%);
+    }
+    &.s {
+        background: $s-tag;
+        color: darken($s-tag, 40%);
     }
 }
-
-ul.tagit-autocomplete{
+ul.tagit-autocomplete {
     font-size: 1em;
     font-family: $cabin-font;
-
-     li.ui-menu-item {
-         position: relative;
-         margin: 0;
-         padding: 3px 1em 3px .4em;
-         cursor: pointer;
-         min-height: 0;
-
-         &.ui-state-focus {
+    li.ui-menu-item {
+        position: relative;
+        margin: 0;
+        padding: 3px 1em 3px .4em;
+        cursor: pointer;
+        min-height: 0;
+        &.ui-state-focus {
             border: none;
             background: $tag;
             font-weight: normal;
             color: darken($tag, 40%);
-         }
-
-     } 
-
-
+        }
+    }
 }
-
 ul#tagit-field {
     font-size: 1em;
     font-family: $cabin-font;
-    
     li.tagit-new {
         margin: 0;
         padding: 0;
     }
-
     input {
         font-size: inherit;
         font-family: inherit;
         margin-left: .5em;
     }
-
-    li.tagit-choice{
+    li.tagit-choice {
         border: none;
         background: $tag;
         font-weight: normal;
@@ -185,13 +158,10 @@ ul#tagit-field {
         }
     }
 }
-
 .inline {
     display: inline-block;
 }
-
 $thumbnail-size: 115px;
-
 .thumbnail {
     height: $thumbnail-size;
     width: $thumbnail-size;
@@ -199,39 +169,32 @@ $thumbnail-size: 115px;
     background-repeat: no-repeat;
     background-size: $thumbnail-size*1.25;
     transition: background-size .075s ease-in-out;
-
-    &:hover{
+    &:hover {
         cursor: pointer;
         background-size: $thumbnail-size auto;
     }
-
     &.portrait {
-            background-size: 150px auto;
-            &:hover {
-                background-size: $thumbnail-size auto;
-            }
+        background-size: 150px auto;
+        &:hover {
+            background-size: $thumbnail-size auto;
+        }
     }
-
     &.landscape {
-            background-size: auto 150px;
-            &:hover {
-                background-size: auto $thumbnail-size;
-            }
+        background-size: auto 150px;
+        &:hover {
+            background-size: auto $thumbnail-size;
+        }
     }
-
     &.nsfw {
         background: image-url('pic/nsfw.png') center center;
         background-size: $thumbnail-size*1.25;
     }
 }
-
 .pagination {
-
     height: 28px;
     font-size: 16px;
     color: #999;
-
-    @mixin page-buton{
+    @mixin page-buton {
         @include border-top-radius(5px);
         @include border-bottom-radius(5px);
         display: inline-block;
@@ -245,7 +208,6 @@ $thumbnail-size: 115px;
         line-height: 24px;
         text-align: center;
     }
-
     a, span {
         @include page-buton;
         background: $mint-shake;
@@ -254,25 +216,19 @@ $thumbnail-size: 115px;
             background: $wheatgrass-juice;
         }
     }
-
     .disabled {
         color: #aaaaaa;
         display: none;
     }
-
     .current, em {
-        @include page-buton; 
+        @include page-buton;
         font-style: normal !important;
         font-weight: bold;
         background: $tomato-juice;
         border-color: $strawberry-daiquiri;
         padding: 0 .2em;
     }
-
 }
-
-
 section#tags {
-
     background: $seafoam;
 }

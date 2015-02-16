@@ -5,4 +5,4 @@
   %ul.tags
     - tag_cloud Pic.tag_counts, %w[s m l xl xxl] do |tag, css_class|
       %li.tag{:class=>css_class}
-        = link_to tag.name, tag_path(tag.name), :title => pluralize(tag.count, 'pic')+' tagged with this'
+        = render '/tags/linkedTag', :tag => tag

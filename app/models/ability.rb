@@ -30,6 +30,7 @@ class Ability
   def viewer
     can :read, :all
     can :update, Pic => :tag_list
+    cannot :create, Pic
   end
 
   def banned

@@ -5,6 +5,8 @@
         = @prefix.upcase
   .alpha
     .container
+      = render "/tags/indexes"
+    .container
       %ul.tags
         - @tags.each do |tag|
           %li.tag

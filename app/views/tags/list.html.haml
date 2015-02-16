@@ -5,6 +5,8 @@
         All Tags
   .alpha
     .container
+      = render "/tags/indexes"
+    .container
       - @groupedTags.each do |group|
         %h3
           = group[0]

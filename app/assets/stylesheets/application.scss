@@ -243,3 +243,9 @@ $thumbnail-size: 115px;
 section#tags {
     background: $seafoam;
 }
+
+ul.tag-indexes{
+    li.index{
+        display: inline-block;
+    }
+}

@@ -6,18 +6,13 @@
         - @pic.errors.full_messages.each do |msg|
           %li= msg
 
-  .row
-    .column.large-4
-      =image_tag @pic.image.url(:thumb)
-
-    .column.large-8
-      .field
-        = f.label :title
-        = f.text_field :title
-
-      .field
-        = f.label :description
-        = f.text_area :description
+  =image_tag @pic.image.url(:thumb)
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
 
   %hr
   .row

@@ -1,5 +1,7 @@
 .container
   = link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
+  %h2
+    = @pic.title
   .pic-details
     Uploaded at 
     %time{:datetime=>@pic.created_at, :title=>distance_of_time_in_words(@pic.created_at, Time.new)+' ago', :class => ['pic-time', @pic.created_at.strftime("%P")]}
@@ -11,45 +13,43 @@
       by
       %span.pic-user
         = @pic.user.email
-
-  %h2
-    = @pic.title
   %p
     = @pic.description
 
 .beta-title
   .container
-    .tags
-      = form_for @pic, :url => updateTags_path(@pic), remote: true do |f|
-        .field
-          %b 
-            Tags: 
-            = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-hidden-field'
-            = f.label :tag_list, "(separate by comma or return)"
-            %ul#tagit-field
+    %h3
+      Tags: 
+      .tags
+    = form_for @pic, :url => updateTags_path(@pic), remote: true do |f|
+      .field
+        = f.hidden_field :tag_list, value: @pic.tag_list.to_s, id: 'tags-hidden-field'
+        (separate by comma or return)
+        %ul#tagit-field
 
 .beta
   .container.actions
     %h3
       Image Links
-      %ul.tabs{'data-tab' => "true"}
-        %li.tab-title.active
-          = link_to 'Screen Size', '#img-links-prev'
-        %li.tab-title
-          = link_to 'Full Size', '#img-links-orig'
-      .tabs-content
-        #img-links-orig.content
-          = text_field_tag 'orig', @pic.image.url(:original, timestamp: false), :readonly => 'true', :class => 'select-all'
-          = text_field_tag 'orig_img', '[img]'+@pic.image.url(:original, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
-        #img-links-prev.content.active
-          = text_field_tag 'preview', @pic.image.url(:preview, timestamp: false), :readonly => 'true', :class => 'select-all'
-          = text_field_tag 'preview_img', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
+      %h4
+        Screen Size
+      #img-links-prev.content.active
+      = text_field_tag 'preview', @pic.image.url(:preview, timestamp: false), :readonly => 'true', :class => 'select-all'
+      = text_field_tag 'preview_img', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
 
+      %h4
+        Full Size
+      #img-links-orig.content
+        = text_field_tag 'orig', @pic.image.url(:original, timestamp: false), :readonly => 'true', :class => 'select-all'
+        = text_field_tag 'orig_img', '[img]'+@pic.image.url(:original, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
+        
 
-  - if can? :update, @pic
-    = link_to 'Edit', edit_pic_path(@pic)
-    \|
-  - if can? :destroy, @pic
-    = link_to 'Delete', @pic, :method => :delete, :data => { :confirm => 'Are you sure?' }
-    \|
-    = link_to 'Back', :back
+.alpha-title
+  .container
+    - if can? :update, @pic
+      = link_to 'Edit', edit_pic_path(@pic)
+      \|
+    - if can? :destroy, @pic
+      = link_to 'Delete', @pic, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      \|
+      = link_to 'Back', :back

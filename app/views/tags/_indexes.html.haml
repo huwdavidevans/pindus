@@ -1,0 +1,6 @@
+%ul.tag-indexes
+  %li.index
+    = link_to 'All', list_tags_path
+  - @tagIndexes.each do |index|
+    %li.index
+      = link_to index, alpha_list_tags_path(:prefix => index)

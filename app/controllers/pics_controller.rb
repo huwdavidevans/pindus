@@ -33,7 +33,7 @@ class PicsController < ApplicationController
 
     respond_to do |format|
       if @pic.save
-        format.html { redirect_to @pic, notice: 'Pic was successfully created.' }
+        format.html { redirect_to edit_pic_path(@pic), notice: 'Pic was successfully uploaded. Enter more details.' }
         format.json { render :show, status: :created, location: @pic }
       else
         format.html { render :new }

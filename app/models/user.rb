@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   include RoleModel
 
-  after_initialize :set_default_role, :if => :new_record?
+  before_save :set_default_role, :if => :new_record?
 
   def self.valid_roles
     [:admin, :moderator, :contributer, :viewer, :banned]

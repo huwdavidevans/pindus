@@ -30,7 +30,7 @@ class TagsController < ApplicationController
     private
 
     def allAvailableTagIndexes
-        ActsAsTaggableOn::Tag.all.collect{|tag| tag[0]}.uniq.sort
+        ActsAsTaggableOn::Tag.all.collect{|tag| tag.name[0]}.uniq.sort
     end
 
 

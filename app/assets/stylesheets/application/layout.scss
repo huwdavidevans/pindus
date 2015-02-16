@@ -16,6 +16,8 @@ h4 {
 .no-padding {
     padding: 0 !important;
 }
+$mobile: new-breakpoint(max-width 500px 4);
+
 nav#top-bar {
     @include clearfix;
     font-family: $cabin-font;
@@ -48,6 +50,14 @@ nav#top-bar {
     ul#user-controls {
         float: right;
         text-align: right;
+        @include media($mobile) {
+        display: inline-block;
+        
+        li {
+            display: inline-block;
+            margin-right: .5em;
+        }
+    }
     }
 }
 #notice {
@@ -63,7 +73,30 @@ nav#top-bar {
 .container {
     @include outer-container;
     padding: 1.5em;
+    @include media($mobile) {
+        padding: .5em;
+    }
 }
+.top-button {
+    a {
+        span.label {
+            @include media($mobile) {
+                display: none;
+            }
+        }
+    }
+}
+.top-button.user {
+    a{
+         @include media($mobile) {
+            display: none !important;
+        }
+    }
+
+}
+
+
+
 .right {
     float: right;
 }

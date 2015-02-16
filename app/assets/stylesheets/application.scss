@@ -164,6 +164,7 @@ ul#tagit-field {
     display: inline-block;
 }
 $thumbnail-size: 115px;
+
 .thumbnail {
 
     height: $thumbnail-size;
@@ -172,6 +173,10 @@ $thumbnail-size: 115px;
     float: left;
     margin-right: 1em;
     margin-bottom: 1em;
+    @include media($mobile) {
+        margin-right: .5em;
+        margin-bottom: .5em;
+    }
 
     background: center center;
     background-repeat: no-repeat;
@@ -198,6 +203,7 @@ $thumbnail-size: 115px;
         background-size: $thumbnail-size*1.25;
     }
 }
+
 .pagination {
     height: 28px;
     font-size: 16px;

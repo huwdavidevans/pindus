@@ -2,27 +2,26 @@
   %ul
     %li
       =link_to 'Pindus', pics_path, :class => 'title'
-    %li
+    %li.top-button
       - if can? :create, Pic
-        = link_to new_pic_path, :class => 'button upload' do 
+        = link_to new_pic_path do 
           %i.fa.fa-lg.fa-upload
-          &nbsp; New Pic
-    %li
+          %span.label> &nbsp; New Pic
+    %li.top-button
       - if user_signed_in?
-        = link_to list_tags_path, :class => 'button' do 
+        = link_to list_tags_path do 
           %i.fa.fa-lg.fa-tags
-          &nbsp; All Tags 
+          %span.label> &nbsp; All Tags 
 
   %ul#user-controls
     
     - if user_signed_in?
-      %li
+      %li.top-button.user
         = link_to current_user.email, edit_user_registration_path
-      \|
-      %li
+      %li.top-button
         = link_to destroy_user_session_path, :method => 'delete' do
           %i.fa.fa-lg.fa-external-link-square
-          Log Out
+          %span.label> &nbsp; Log Out
     - else
       %li
         = link_to 'Log in', new_user_session_path

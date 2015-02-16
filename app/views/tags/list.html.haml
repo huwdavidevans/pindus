@@ -1,0 +1,15 @@
+%section
+  .alpha-title
+    .container
+      %h1
+        All Tags
+  .alpha
+    .container
+      - @groupedTags.each do |group|
+        %h3
+          = group[0]
+        %ul.tags
+          - group[1].each do |tag|
+            %li.tag
+              = render '/tags/linkedTag', :tag => tag
+      = will_paginate @tags, previous_label: h("<"), next_label: h(">"), :class=>'pagination right'

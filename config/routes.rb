@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   patch 'pics/updateTags/:id', to: 'pics#updateTags', as: :updateTags
   resources :pics 
 
-  get 'tags/:tag', to: 'pics#index', as: :tag
+  get 'tags', to: 'tags#list', as: :list_tags
+  get 'tags/:prefix', to: 'tags#alphaList', as: :alpha_list_tags
+  get 'tagged-with/:tag', to: 'pics#index', as: :tag
   get 'autocomplete-tags' => 'tags#autocomplete'
   get 'popular-tags' => 'tags#popular'
 

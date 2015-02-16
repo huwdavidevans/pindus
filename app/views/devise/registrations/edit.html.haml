@@ -1,29 +1,31 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .row
-    .column.large-6
-      .field
-        = f.label :email
-        = f.email_field :email, autofocus: true
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %div
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
-    .column.large-6
-      .field
-        =f.label :first_name
-        =f.text_field :first_name
-      .field
-        =f.label :last_name
-        =f.text_field :last_name
-      .field
-        =f.label :screen_name
-        =f.text_field :screen_name
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
+%section
+  .alpha-title
+    .container
+      %h1
+        Edit #{resource_name.to_s.humanize}
+  .alpha
+    .container
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        .field
+          = f.label :email
+          = f.email_field :email, autofocus: true
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .field
+          =f.label :first_name
+          =f.text_field :first_name
+        .field
+          =f.label :last_name
+          =f.text_field :last_name
+        .field
+          =f.label :screen_name
+          =f.text_field :screen_name
+        .field
+          = f.label :current_password
+          %i (we need your current password to confirm your changes)
+          = f.password_field :current_password, autocomplete: "off"
+        .actions
+          = f.submit "Update"
 

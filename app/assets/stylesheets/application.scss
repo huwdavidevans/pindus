@@ -156,6 +156,8 @@ ul#tagit-field {
     li.tagit-new {
         margin: 0;
         padding: 0;
+        position: relative;
+        top: .5em;
     }
 
     input {
@@ -192,9 +194,17 @@ ul#tagit-field {
 
 $thumbnail-size: 115px;
 
+
+
 .thumbnail {
+
     height: $thumbnail-size;
     width: $thumbnail-size;
+
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+
     background: center center;
     background-repeat: no-repeat;
     background-size: $thumbnail-size*1.25;
@@ -230,6 +240,7 @@ $thumbnail-size: 115px;
     height: 28px;
     font-size: 16px;
     color: #999;
+    margin-bottom: 1em;
 
     @mixin page-buton{
         @include border-top-radius(5px);
@@ -269,10 +280,4 @@ $thumbnail-size: 115px;
         padding: 0 .2em;
     }
 
-}
-
-
-section#tags {
-
-    background: $seafoam;
 }

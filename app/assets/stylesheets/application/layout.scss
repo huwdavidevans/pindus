@@ -1,17 +1,18 @@
 body {
     margin: 0;
 }
-nav:after {
-    content: "";
-    display: table;
-    clear: both;
+h1 {
+    font-size: $base-font-size * 3;
+}
+h2 {
+    font-size: $base-font-size * 2.5;
 }
 nav#top-bar {
+    @include clearfix;
     font-family: $cabin-font;
     background: $acai;
     color: #f3f9fd;
     padding: 0 1em;
-    margin-bottom: 1.5em;
     line-height: normal;
     ul {
         float: left;
@@ -44,10 +45,39 @@ nav#top-bar {
     color: #fff;
     background: $mint-shake;
     padding: 1.25em;
-    margin: -1.5em 0 1.5em;
 }
 #alert {
     @extend #notice;
     color: $chocolate-milk;
     background: $pumpkin;
+}
+.container {
+    @include outer-container;
+    padding: 1.5em;
+}
+.right {
+    float: right;
+}
+.alpha {
+    padding: 1.5em;
+    @include clearfix;
+}
+.beta {
+    @extend .alpha;
+    background: $pulp;
+}
+.alpha-title {
+    background: $spearmint;
+    padding: 1.5em;
+    h1, h2 {
+        color: $acai;
+        margin: 0;
+    }
+}
+.beta-title {
+    @extend .alpha-title;
+    background: $tomato-juice;
+    h1, h2 {
+        color: $cream-tea;
+    }
 }

@@ -1,15 +1,26 @@
 %section
-  %h1
-    %i.fa.fa-photo
-    Pics
+  .alpha-title
+    .container
+      %h1
+        = image_tag(image_path('icons/apple-touch-icon-114x114-precomposed.png'))
+        Pics
 
-  %ul
-    - @pics.each do |pic|
-      %li
-        =link_to(pic) do
-          = render "thumbnail", {:pic => pic}
+  .alpha
+    .container
+      %ul
+        - @pics.each do |pic|
+          %li
+            =link_to(pic) do
+              = render "thumbnail", {:pic => pic}
+  .container
+    = will_paginate @pics, previous_label: h("<"), next_label: h(">"), :class=>'pagination right'
 
-  =will_paginate @pics, previous_label: h("<"), next_label: h(">"), :class=>'pagination right'
-
-%section#tags
-  = render "tag_cloud"
+%section
+  .beta-title
+    .container
+      %h2
+        %i.fa.fa-tag
+        Tags
+  .beta
+    .container
+      = render "tag_cloud"

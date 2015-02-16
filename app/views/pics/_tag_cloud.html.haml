@@ -1,8 +1,5 @@
 #tag-cloud
-  %h3
-    %i.fa.fa-tag
-    Tags
   %ul.tags
-    - tag_cloud Pic.tag_counts, %w[s m l xl xxl] do |tag, css_class|
+    - tag_cloud Pic.tag_counts.order('count DESC').limit(100).sort_by{|tag| tag.name}, %w[s m l xl xxl] do |tag, css_class|
       %li.tag{:class=>css_class}
         = link_to tag.name, tag_path(tag.name), :title => pluralize(tag.count, 'pic')+' tagged with this'

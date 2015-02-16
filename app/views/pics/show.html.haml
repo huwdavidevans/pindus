@@ -1,26 +1,25 @@
-.row
-  .columns
-    = link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
 
-.row
-  .columns
-    .pic-details
-      Uploaded at 
-      %time{:datetime=>@pic.created_at, :title=>distance_of_time_in_words(@pic.created_at, Time.new)+' ago', :class => ['pic-time', @pic.created_at.strftime("%P")]}
-        %span{:class => ('hour-'+@pic.created_at.strftime("%H"))}
-          %span{:class => ('minute-'+@pic.created_at.strftime("%M"))}
-        %span.pic-date
-          = @pic.created_at.strftime("%B %d, %Y")
-      - if @pic.user
-        by
-        %span.pic-user
-          = @pic.user.email
+.container
+  = link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
+  .pic-details
+    Uploaded at 
+    %time{:datetime=>@pic.created_at, :title=>distance_of_time_in_words(@pic.created_at, Time.new)+' ago', :class => ['pic-time', @pic.created_at.strftime("%P")]}
+      %span{:class => ('hour-'+@pic.created_at.strftime("%H"))}
+        %span{:class => ('minute-'+@pic.created_at.strftime("%M"))}
+      %span.pic-date
+        = @pic.created_at.strftime("%B %d, %Y")
+    - if @pic.user
+      by
+      %span.pic-user
+        = @pic.user.email
 
-    %h2
-      = @pic.title
-    %p
-      = @pic.description
+  %h2
+    = @pic.title
+  %p
+    = @pic.description
 
+.beta-title
+  .container
     .tags
       = form_for @pic, :url => updateTags_path(@pic), remote: true do |f|
         .field
@@ -30,8 +29,8 @@
             = f.label :tag_list, "(separate by comma or return)"
             %ul#tagit-field
 
-.row
-  .columns.actions
+.beta
+  .container.actions
     %h3
       Image Links
       %ul.tabs{'data-tab' => "true"}
@@ -48,10 +47,10 @@
           = text_field_tag 'preview_img', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
 
 
-- if can? :update, @pic
-  = link_to 'Edit', edit_pic_path(@pic)
-  \|
-- if can? :destroy, @pic
-  = link_to 'Delete', @pic, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  \|
-= link_to 'Back', :back
+  - if can? :update, @pic
+    = link_to 'Edit', edit_pic_path(@pic)
+    \|
+  - if can? :destroy, @pic
+    = link_to 'Delete', @pic, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    \|
+    = link_to 'Back', :back

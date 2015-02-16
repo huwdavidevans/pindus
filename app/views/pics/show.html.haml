@@ -1,6 +1,6 @@
 .row
   .columns
-    = link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:default, timestamp: false), :target=>'_blank'
+    = link_to image_tag(@pic.image.url(:preview)), @pic.image.url, :class=> 'colorbox', :title => @pic.image.url(:original, timestamp: false), :target=>'_blank'
 
 .row
   .columns

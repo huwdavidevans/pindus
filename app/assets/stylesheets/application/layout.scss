@@ -17,13 +17,15 @@ h4 {
     padding: 0 !important;
 }
 $mobile: new-breakpoint(max-width 500px 4);
-
 nav#top-bar {
     @include clearfix;
     font-family: $cabin-font;
     background: $acai;
     color: #f3f9fd;
     padding: 0 1em;
+    @include media($mobile) {
+        padding: 0 .5em;
+    }
     line-height: normal;
     ul {
         float: left;
@@ -33,15 +35,24 @@ nav#top-bar {
         li {
             display: inline-block;
             margin-right: 1em;
+            @include media($mobile) {
+                margin-right: .5em;
+            }
         }
     }
     .title {
         font-family: $amaranth-font;
         font-size: 1.5em;
+        @include media($mobile) {
+            font-size: 1em;
+        }
     }
     a {
         color: inherit;
         padding: 1em;
+            @include media($mobile) {
+        padding: .5em;
+    }
         display: inline-block;
         &:hover {
             color: #a6d5e8;
@@ -51,13 +62,12 @@ nav#top-bar {
         float: right;
         text-align: right;
         @include media($mobile) {
-        display: inline-block;
-        
-        li {
             display: inline-block;
-            margin-right: .5em;
+            li {
+                display: inline-block;
+                margin-right: .5em;
+            }
         }
-    }
     }
 }
 #notice {
@@ -86,17 +96,6 @@ nav#top-bar {
         }
     }
 }
-.top-button.user {
-    a{
-         @include media($mobile) {
-            display: none !important;
-        }
-    }
-
-}
-
-
-
 .right {
     float: right;
 }

@@ -16,11 +16,15 @@
   %ul#user-controls
     
     - if user_signed_in?
-      %li.top-button.user
-        = link_to current_user.email, edit_user_registration_path
+      %li.top-button
+        = link_to edit_user_registration_path do
+          %i.fa.fa-lg.fa-user
+          %span.label
+            &nbsp;
+            = current_user.email
       %li.top-button
         = link_to destroy_user_session_path, :method => 'delete' do
-          %i.fa.fa-lg.fa-external-link-square
+          %i.fa.fa-lg.fa-sign-out
           %span.label> &nbsp; Log Out
     - else
       %li

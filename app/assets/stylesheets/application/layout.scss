@@ -50,9 +50,9 @@ nav#top-bar {
     a {
         color: inherit;
         padding: 1em;
-            @include media($mobile) {
-        padding: .5em;
-    }
+        @include media($mobile) {
+            padding: .5em;
+        }
         display: inline-block;
         &:hover {
             color: #a6d5e8;

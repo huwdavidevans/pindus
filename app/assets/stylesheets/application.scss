@@ -242,8 +242,40 @@ $thumbnail-size: 115px;
 section#tags {
     background: $seafoam;
 }
+
+.tag-group {
+    margin-bottom: 3em;
+}
+
 ul.tag-indexes {
-    li.index {
-        display: inline-block;
+    a {
+        li.index {
+            display: inline-block;
+            background: $denim;
+            padding: 0 .3em;
+            min-width: 24px;
+            border-radius: 5px;
+            text-align: center;
+            &:hover {
+                background: $spearmint;
+                a {
+                    color: $denim;
+                }
+            }
+
+            &:active {
+                background: $acai;
+                color: #fff;
+            }
+
+        }
+        color: #fff;
+        &:hover {
+            color: $denim;
+        }
+            &:active {
+                cursor: pointer;
+            }
     }
 }
+

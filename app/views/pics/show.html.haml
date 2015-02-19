@@ -33,15 +33,14 @@
       Image Links
       %h4
         Screen Size
-      #img-links-prev.content.active
-      = text_field_tag 'preview', @pic.image.url(:preview, timestamp: false), :readonly => 'true', :class => 'select-all'
-      = text_field_tag 'preview_img', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
-
+      #img-links-prev.content
+      = text_field_tag 'preview', @pic.image.url(:preview, timestamp: false), :readonly => 'readonly', :onclick => "this.selectionStart=0;this.selectionEnd=this.value.length;"
+      = text_field_tag 'preview_img', '[img]'+@pic.image.url(:preview, timestamp: false)+'[/img]', :readonly => 'readonly', :class => 'select-all', :onclick => "this.selectionStart=0;this.selectionEnd=this.value.length;"
       %h4
         Full Size
       #img-links-orig.content
-        = text_field_tag 'orig', @pic.image.url(:original, timestamp: false), :readonly => 'true', :class => 'select-all'
-        = text_field_tag 'orig_img', '[img]'+@pic.image.url(:original, timestamp: false)+'[/img]', :readonly => 'true', :class => 'select-all'
+        = text_field_tag 'orig', @pic.image.url(:original, timestamp: false), :readonly => 'readonly', :onclick => "this.selectionStart=0;this.selectionEnd=this.value.length;"
+        = text_field_tag 'orig_img', '[img]'+@pic.image.url(:original, timestamp: false)+'[/img]', :onclick => "this.selectionStart=0;this.selectionEnd=this.value.length;"
         
 
 .alpha-title

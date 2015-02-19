@@ -9,10 +9,11 @@
       = render "/tags/indexes"
     .container
       - @groupedTags.each do |group|
-        %h3
-          = group[0]
-        %ul.tags
-          - group[1].each do |tag|
-            %li.tag
-              = render '/tags/linkedTag', :tag => tag
+        .tag-group
+          %h3
+            = group[0]
+          %ul.tags
+            - group[1].each do |tag|
+              %li.tag
+                = render '/tags/linkedTag', :tag => tag
       = will_paginate @tags, previous_label: h("<"), next_label: h(">"), :class=>'pagination right'

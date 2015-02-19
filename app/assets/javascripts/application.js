@@ -60,7 +60,8 @@ ready = function() {
     $('a.colorbox').colorbox();
 
     $(".select-all").click(function() {
-        this.select();
+        this.selectionStart=0;
+        this.selectionEnd=this.value.length;
     });
 
 };
